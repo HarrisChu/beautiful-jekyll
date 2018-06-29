@@ -131,6 +131,12 @@ url-pretty: "MyWebsite.com"  # eg. "deanattali.com/beautiful-jekyll"
 # Facebook App ID
 # fb_app_id: ""
 
+gitalk:
+    owner: harrischu
+    repo: blog-comments
+    clientID: 01562d9ab36f0dc71877
+    clientSecret: 7890eae40f7b277c21e848f8c98fabd7cf2997dc
+
 # Excerpt Word Length
 # Truncates the excerpt to the specified number of words on the index page
 excerpt_length: 50
