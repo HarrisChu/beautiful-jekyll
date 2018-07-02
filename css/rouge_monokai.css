@@ -1,4 +1,4 @@
-.highlight table td { padding: 5px; }
+.highlight table td { padding: 0px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
   color: #999999;
@@ -174,7 +174,7 @@
   color: #f92672;
 }
 .highlight .k, .highlight .kv {
-  color: #f92672;
+  color: #66d9ef;
 }
 .highlight .kn {
   color: #f92672;
@@ -196,5 +196,34 @@ figure.highlight > pre{
   color:#f8f8f2; 
 }
 
+
+div[class="highlight"] > pre > code[class*="language-"] {
+  background:black;
+  color:#f8f8f2;
+}
+div[class="highlight"] > pre {
+  background:black;
+}
+figure[class="highlight"] > pre > code[class*="language-"] {
+  text-align:left;
+  background:black;
+  color:#f8f8f2;
+}
+figure[class="highlight"] > pre > code[class*="language-"] td > pre{
+  text-align:left;
+  background:black;
+  color:#f8f8f2;
+}
+figure[class="highlight"] > pre {
+  text-align:left;
+  background:black;
+}
+div[class="highlighter-rouge"] > pre[class="highlight"] > code{
+  background:black;
+  color:#f8f8f2;
+}
+div[class="highlighter-rouge"] > pre[class="highlight"] {
+  background:black;
+}
 
 .lineno {color: #f8f8f2 } /*Number of line*/
