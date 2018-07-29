@@ -38,6 +38,12 @@ Docker 版本：17.03.1.ce
 * 在 master 上安装了 etcd 集群。 （非 TLS）
 * 用 kubeadm 安装 Kubernetes HA。
 
+## 准备
+
+* 4 台阿里云机器，1台放 Haproxy，剩下 3 台机器部署 Kubernetes，操作系统 Centos 7.4.
+* 配置阿里云的 SLB，6443 端口指向 Haproxy 机器的 6443 端口。
+* (推荐) 安装 Docker，通过 Docker 部署。
+
 ## 安装集群
 
 ### Docker 部署集群
