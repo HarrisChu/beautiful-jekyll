@@ -80,9 +80,9 @@ requests_html 是 kennethreitz 写的库，打算通过阅读源码，进一步�
 * 学习 Python 3.6 相关语法，尤其是 `async` 和 `await`
 * 学习 pytest 相关用法
 
-# v0.1.0
+## v0.1.0
 
-## 依赖
+### 依赖
 
 查看 setup.py, 看到有下面的依赖：
 
@@ -94,11 +94,11 @@ requests_html 是 kennethreitz 写的库，打算通过阅读源码，进一步�
 
 可以看到还没有依赖 pyppeteer, 只是用 pyquery 和 parse，更方便的解析 HTML。
 
-## Test
+### Test
 
 没有测试用例
 
-## 代码
+### 代码
 
 代码比较简单，主要是定义了一个 HTML 的类，当用 requests 获取 response 后，通过 hook 调用 `_handle_response` 函数，为 `response` 添加了一个 HTML 实例。
 
@@ -108,14 +108,14 @@ HTML 类主要有三个功能：
 * `search` 利用 parse 库，可以定义一个 template，然后返回 search 的内容。
 * `links` 返回页面中的超链接列表。
 
-## 有趣代码
+### 有趣代码
 
-### 生成器
+#### 生成器
 
 返回列表时，都定义了一个生成器，然后 `find` 函数用 list 返回，而 `links` 用 set 返回。
 `set` 比 `list` 效率高，如果可以剔除重复并且顺序无关，用 set 更专业一点。
 
-### PyQuery
+#### PyQuery
 
 pyquery 是 Python 实现的 CSS 选择器，简单的一个例子。
 
@@ -138,21 +138,21 @@ print(p('span.s')) # <span class="s">'__main__'</span>
 
 ```
 
-# v0.2.0
+## v0.2.0
 
 0.1.0 比较简单，继续下个 tag
 
-## 依赖
+### 依赖
 
 看到去掉了 html2text，增加了 bs4 （多了 xpath？）。
 
-## Test
+### Test
 
 多了测试用例，先看一下具体的内容。
 
 用了 requests 的 `mount`, 直接访问了 HTML 文件，然后测试了一下 CSS selector，links，和 xpath。有个小问题是 `test_links` 验证时没用 `assert`，写了个假的测试用例 = =。
 
-## 代码
+### 代码
 
 主要改动：
 
@@ -160,12 +160,12 @@ print(p('span.s')) # <span class="s">'__main__'</span>
 * 添加了 xpath，可以用 xpath 来查找元素。
 * 为了获取 link 的绝对路径，将 url 传入 Element 中。
 
-## 有趣代码
+### 有趣代码
 
 代码不怎么复杂，k神删了 markdown 相关，又抽象了一个基类。
 优化是需要贯彻始终的，对于 Python 来说，先实现功能，再不断优化就好。
 
-### 定义函数中的 *
+#### 定义函数中的 *
 
 Python3 中，声明函数中如果有 `*`，那么在调用时， `*` 后面的参数，是必选要输入的。
 
@@ -191,7 +191,7 @@ harris_default('this is a test', 'harris') # 错误
 harris_default('this is a test', name='blue') # 正确
 ```
 
-### 继承 requests 的 Session 类
+#### 继承 requests 的 Session 类
 
 通过继承 requests 的 Session 类，自定义 hooks，可以更方便的完成一些自定义的操作。
 比如，校验每次返回的 status_code 是不是 200
@@ -214,4 +214,5 @@ s = MySession()
 s.get('http://www.baidu.com')
 s.get('http://www.baidu.com/404')
 ```
+
 可以看到第二个请求，返回了302，所以 assert 错误了。
